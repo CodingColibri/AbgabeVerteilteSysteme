@@ -1,7 +1,9 @@
 var eingabe = document.querySelector('#eingabe');
 
-document.getElementById("bestaetigen").addEventListener("click", test);
+document.getElementById("bestaetigen").addEventListener("click", wertauslesen);
 
-function test() {
-    alert("test");
+function wertauslesen() {
+    var wert = eingabe.value;
+    alert(wert);
+    eingabe.value = null;
 };
