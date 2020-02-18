@@ -6,5 +6,8 @@ app = Flask(__name__)
 def test():
     return render_template('verteiltesysteme.html')
 
-if _name == '__main'
+"""
+    use: export FLASK_APP=verteiltesysteme.py 
+    and: flask run 
+"""
 
