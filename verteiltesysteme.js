@@ -1,7 +1,7 @@
 var eingabe = document.querySelector('#eingabe');
 
-document.getElementById("#bestaetigen").addEventListener("click", main);
+document.getElementById("bestaetigen").addEventListener("click", test);
 
-function main() {
+function test() {
     alert("test");
 };
