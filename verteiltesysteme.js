@@ -1,9 +1,7 @@
 var eingabe = document.querySelector('#eingabe');
-var bestbutton = document.querySelector('#bestaetigen');
 
-bestbutton.addEventListener("click", main);
+document.getElementById("#bestaetigen").addEventListener("click", main);
 
 function main() {
-
-
+    alert("test");
 };
