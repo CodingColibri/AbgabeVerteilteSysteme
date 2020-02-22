@@ -1,9 +1,27 @@
-h1 {
-    font-family: -apple-system, BlinkMacSystemFont, "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 30px;
+* {
+    color: white;
 }
 
-p {
-    font-family: -apple-system, BlinkMacSystemFont, "Neue Haas Grotesk Text Pro", "Helvetica Neue", Helvetica, Arial, sans-serif;
-    font-size: 15px;
+.label {
+    font-size: 20px;
+}
+
+.background {
+    background: url('../../png/bg.jpg') no-repeat;
+    background-size: cover;
+}
+
+.formular-container {
+    background: rgba(0, 0, 0, 0.6);
+    padding: 50px 60px;
+    padding-right: 0px;
+    margin: 20vh;
+    width: 600px;
+    -webkit-box-shadow: 1px 4px 25px 11px rgba(0, 0, 0, 0.75);
+    -moz-box-shadow: 1px 4px 25px 11px rgba(0, 0, 0, 0.75);
+    box-shadow: 1px 4px 25px 11px rgba(0, 0, 0, 0.75);
+}
+
+.button {
+    margin-top: 15px;
 }

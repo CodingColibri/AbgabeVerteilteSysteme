@@ -3,28 +3,83 @@
 
 <head>
     <meta charset="UTF-8">
-    <link rel= "stylesheet" type= "text/css" href= "{{ url_for('static',filename='styles/verteiltesysteme.css') }}">
+    <link rel="stylesheet" href='../static/styles/verteiltesysteme.css'>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Verteilte Systeme</title>
 </head>
 
-<body>
-    <div>
-        <h1 id="eingabefeld">Eingabefeld</h1>
-        <p>Hier noch Text einfügen</p>
-    </div>
-    <div>
-        <!--Eingabefeld mit Button-->
-        <input type="text" placeholder="Neue Eingabe..." id="eingabe">
-        <button id="bestaetigen">
-            <svg version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 16 16" style="enable-background:new 0 0 16 16;" xml:space="preserve"><g><g><path class="fill" d="M16,8c0,0.5-0.5,1-1,1H9v6c0,0.5-0.5,1-1,1s-1-0.5-1-1V9H1C0.5,9,0,8.5,0,8s0.5-1,1-1h6V1c0-0.5,0.5-1,1-1s1,0.5,1,1v6h6C15.5,7,16,7.5,16,8z"/></g></g></svg>  
-          </button>
-    </div>
+<body class="background">
+
+    <div class="container-fluid">
+
+        <div class="row">
+            <form class="formular-container">
+                <h1>Registrierung</h1>
+                <div class="form-row">
+
+                    <div class="col-md-4 mb-3">
+                        <label for="validationServer01">Vorname</label>
+                        <input type="text" class="form-control is-valid" id="validationServer01" placeholder="First name" value="Mark" required>
+                        <div class="valid-feedback">
+                            Sieht gut aus!
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <label for="validationServer02">Nachname</label>
+                        <input type="text" class="form-control is-valid" id="validationServer02" placeholder="Last name" value="Otto" required>
+                        <div class="valid-feedback">
+                            Sieht gut aus!
+                        </div>
+                    </div>
+                    <div class="col-md-4 mb-3">
+                        <div class="input-group">
+                            <div class="input-group-prepend">
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-6 mb-3" style="padding: 0px">
+                    <label for="validationServer03">Company Name</label>
+                    <input type="text" class="form-control is-invalid" id="validationServer03" placeholder="Company" required>
+                    <div class="invalid-feedback">
+                        Bitte gültige Firma eintragen.
+                    </div>
+                </div>
+                <div class="col-md-7 mb-3" style="padding: 0px">
+                    <label for="validationServer04">E-Mail Adresse</label>
+                    <input type="text" class="form-control is-invalid" id="validationServer04" placeholder="E-Mail" required>
+                    <div class="invalid-feedback">
+                        Bitte gültige E-Mail Adresse eintragen.
+                    </div>
+                </div>
+                <div class="col-md-8 mb-3" style="padding: 0px">
+                    <label for="validationServer05">Telefon Nummer</label>
+                    <input type="text" class="form-control is-invalid" id="validationServer05" placeholder="Telefon" required>
+                    <div class="invalid-feedback">
+                        Bitte gültige Telefon Nummer eintragen.
+                    </div>
+                </div>
+
+                <button class="btn btn-outline-success button" type="submit">Senden</button>
+            </form>
 
 
-    <script type=text/javascript src="{{url_for('static', filename='scripts/verteiltesysteme.js') }}">
-    </script>
+        </div>
+        <div class="col-md-4 col-sm-4 col-xs-12"></div>
+
+        <script type=text/javascript src="{{url_for('static', filename='scripts/verteiltesysteme.js') }}">
+            < script src = "https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+            integrity = "sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+            crossorigin = "anonymous" >
+        </script>
+        </script>
+        <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
 </body>
 
 </html>
