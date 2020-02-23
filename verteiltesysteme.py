@@ -12,19 +12,13 @@ def test():
     if request.method == 'POST': #called by  POST request | first and last name mandatory
         req_data = request.get_json()
 
-        """first_name = request.form.get('first_name')
-        last_name = request.form['last_name']
-        company = request.form.get('company')
-        mail = request.form.get('mail')
-        tel = request.form.get('tel')"""
-
         client = Client(first_name = req_data['first_name'], last_name = req_data['last_name']\
             ,company = req_data['company'], mail = req_data['mail'], tel = int(req_data['tel']))
 
         db.session.add(client)
         db.session.commit()
 
-        return 'POST ist da'
+        return req_data['first_name'] + ' ' + req_data['last_name'] + ' added to client list.'
 
     return render_template('verteiltesysteme.html') #standard return
 
