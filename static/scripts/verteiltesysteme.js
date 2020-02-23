@@ -1,7 +1,2 @@
-var eingabe = document.querySelector('#eingabe');
-
-document.getElementById("bestaetigen").addEventListener("click", test);
-
-function test() {
-    alert("test");
-};
+let msgvorname = document.querySelector('#vorname').nodeValue;
+let msgnachname = document.querySelector('#nachname').nodeValue;
