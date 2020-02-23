@@ -14,9 +14,13 @@ db = SQLAlchemy(app)
 def enter_client():
     if request.method == 'POST': #called by  POST request | first and last name mandatory
         req_data = request.get_json()
+        try:
+            tel_temp = None if req_data['tel'] == "" else int(req_data['tel'])
+        except:
+            return render_template('verteiltesysteme.html'), 422
 
         client = Client(first_name = req_data['first_name'], last_name = req_data['last_name']\
-            ,company = req_data['company'], mail = req_data['mail'], tel = int(req_data['tel'])) #Client objekt erstellt
+            ,company = req_data['company'], mail = req_data['mail'], tel = tel_temp) #Client objekt erstellt
 
         db.session.add(client) #client wird zur db hinzugefügt
         db.session.commit() #Änderung werden gespeichert
