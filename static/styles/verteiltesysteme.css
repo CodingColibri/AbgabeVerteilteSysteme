@@ -7,7 +7,7 @@
 }
 
 .background {
-    background: url({{ url_for ('static', filename = '/static/img.png') }});
+    background-image: url('/static/img/bg.jpg');
     background-size: cover;
 }
 
