@@ -17,4 +17,11 @@ document.getElementById("bs").addEventListener("click", function() {
     xhr.setRequestHeader("Content-Type", "application/json");
     var data = JSON.stringify(client);
     xhr.send(data);
+
+    alert("Client wurde registriert. Whup Whup. ");
+    document.querySelector("#validationServer01").value = null;
+    document.querySelector("#validationServer01").value;
+    document.querySelector("#validationServer01").value;
+    document.querySelector("#validationServer01").value;
+    document.querySelector("#validationServer01").value;
 });
