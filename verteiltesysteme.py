@@ -8,7 +8,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.static_folder = 'static'
 app.debug = True
 db = SQLAlchemy(app)
-db.create_all()
+
 
 @app.route('/', methods=['GET', 'POST']) #allow GET & Post requests
 def enter_client():
