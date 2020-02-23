@@ -8,6 +8,7 @@ app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 app.static_folder = 'static'
 app.debug = True
 db = SQLAlchemy(app)
+db.create_all()
 
 @app.route('/', methods=['GET', 'POST']) #allow GET & Post requests
 def enter_client():
@@ -35,14 +36,21 @@ def test_query():
 
     sql = "SELECT * FROM client WHERE "
     sql += "first_name Like '" + first + "'" if first is not None else ""
+    sql += "last_name Like '" + last + "'" if last is not None else ""
+    sql += "company Like '" + company + "'" if company is not None else ""
+    sql += "mail Like '" + mail + "'" if mail is not None else ""
+    sql += "tel Like '" + tel + "'" if tel is not None else ""
+
+    if sql == "SELECT * FROM client WHERE ":
+        return render_template('suche.html')
 
     results = db.engine.execute(text(sql))
     names = []
     for row in results:
         names.append(list(row._row))
         print(type(names[0]))
-
-    print (names[0][3])
+    if len(names) < 1:
+        return "<h1>No Entry found</h1>"
     return '''<h1>{}</h1>
               <p>Company: {}</p>
               <p>E-Mail: {}</p>
