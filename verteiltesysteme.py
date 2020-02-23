@@ -10,31 +10,31 @@ app.debug = True
 db = SQLAlchemy(app)
 
 
-@app.route('/', methods=['GET', 'POST']) #allow GET & Post requests
+@app.route('/', methods=['GET', 'POST']) #Home seite / Client eingabe
 def enter_client():
     if request.method == 'POST': #called by  POST request | first and last name mandatory
         req_data = request.get_json()
 
         client = Client(first_name = req_data['first_name'], last_name = req_data['last_name']\
-            ,company = req_data['company'], mail = req_data['mail'], tel = int(req_data['tel']))
+            ,company = req_data['company'], mail = req_data['mail'], tel = int(req_data['tel'])) #Client objekt erstellt
 
-        db.session.add(client)
-        db.session.commit()
+        db.session.add(client) #client wird zur db hinzugefügt
+        db.session.commit() #Änderung werden gespeichert
 
         return req_data['first_name'] + ' ' + req_data['last_name'] + ' added to client list.'
 
     return render_template('verteiltesysteme.html') #standard return
 
-#call: /query?name=<value>&mandatory=<value>
-@app.route('/query')
-def test_query():
-    first = request.args.get('first')
+
+@app.route('/query') #DB anfragen via URL arguments
+def db_query():
+    first = request.args.get('first') #args aus url abfragen
     last = request.args.get('last')
     company = request.args.get('company')
     mail = request.args.get('mail')
     tel = request.args.get('tel')
 
-    sql = "SELECT * FROM client WHERE "
+    sql = "SELECT * FROM client WHERE " #SQL statement zusammen bauen
     sql += "first_name Like '" + first + "'" if first is not None else ""
     sql += "last_name Like '" + last + "'" if last is not None else ""
     sql += "company Like '" + company + "'" if company is not None else ""
@@ -42,12 +42,12 @@ def test_query():
     sql += "tel Like '" + tel + "'" if tel is not None else ""
 
     if sql == "SELECT * FROM client WHERE ":
-        return render_template('suche.html')
+        return render_template('suche.html') #falls die Seite ohne args aufgerufen wird
 
-    results = db.engine.execute(text(sql))
+    results = db.engine.execute(text(sql)) #db abruf
     names = []
     for row in results:
-        names.append(list(row._row))
+        names.append(list(row._row)) #ergebnis auswerten
         print(type(names[0]))
     if len(names) < 1:
         return "<h1>No Entry found</h1>"
@@ -56,11 +56,6 @@ def test_query():
               <p>E-Mail: {}</p>
               <p>Tel.: {}</p>'''.format(names[0][1] + " " + names[0][2], names[0][3], names[0][4], names[0][5])
 
-@app.route('/getclient', methods=['POST', 'GET'])
-def get_client():
-    if request.method == 'POST':
-        req_date = request.get_json()
-    return None
 
 #Database Stuff
 class Client(db.Model):
@@ -71,6 +66,6 @@ class Client(db.Model):
     mail = db.Column(db.String(120))
     tel = db.Column(db.Integer, unique=True)
 
-
+#Im here to run
 if __name__ == '__main__':
     app.run()
