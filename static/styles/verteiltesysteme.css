@@ -9,6 +9,7 @@
 .background {
     background-image: url('/static/img/bg.jpg');
     background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .formular-container {
@@ -28,5 +29,9 @@
 
 .suchbutton {
     margin-top: 20px;
-    ;
+    position: absolute;
+    bottom: 15em;
+    right: 15em;
+    float: right;
+    margin-right: 20px;
 }
