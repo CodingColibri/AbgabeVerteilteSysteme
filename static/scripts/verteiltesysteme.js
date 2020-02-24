@@ -18,7 +18,16 @@ document.getElementById("bs").addEventListener("click", function() {
     var data = JSON.stringify(client);
     xhr.send(data);
 
-    alert("Client wurde registriert. Whup Whup. ");
+    xhr.onreadystatechange = function() {
+        if (this.readyState == 4 && this.status == 200) {
+            //document.getElementById("demo").innerHTML = this.responseText;
+            alert("Client added")
+        }
+        else if(this.readyState == 4 && this.status == 422){
+            alert(this.status + " Tel. Entry invalid! Only use 0-9")
+        }
+    };
+
     document.querySelector("#validationServer01").value = null;
     document.querySelector("#validationServer01").value;
     document.querySelector("#validationServer01").value;
