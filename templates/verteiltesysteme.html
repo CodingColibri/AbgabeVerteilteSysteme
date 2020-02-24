@@ -12,13 +12,10 @@
 </head>
 
 <body class="background">
-    <div>
-    </div>
     <div class="container-fluid">
         <div class="row">
             <form class="formular-container" enctype='application/json' name="myForm">
                 <div>
-                    <a href="http://127.0.0.1:5000/query">Suche</a>
                 </div>
                 <h1>Registrierung</h1>
                 <div class="form-row">
@@ -58,18 +55,20 @@
                         Bitte gültige E-Mail Adresse eintragen.
                     </div>
                 </div>
-                <div class="col-md-8 mb-3" style="padding: 0px">
+                <div class="col-md-8 mb-3" style="padding: 0px; margin-bottom: 0px">
                     <label for="validationServer05">Telefon Nummer</label>
                     <input type="text" class="form-control" id="validationServer05" placeholder="Telefon" required="required">
                     <div class="invalid-feedback">
                         Bitte gültige Telefon Nummer eintragen.
                     </div>
                 </div>
-
-                <button class="btn btn-outline-success button" type="button" id="bs">Senden</button>
+                <div class="col-md-9 mb-3" style="padding: 0px">
+                    <button class="btn btn-outline-success button" type="button" id="bs">Senden</button>
+                </div>
+                <div class="col-md-10 mb-3" style="padding: 0px">
+                    <a href="http://127.0.0.1:5000/query" style="color: white">Zur Suche wechseln</a>
+                </div>
             </form>
-
-
         </div>
         <div class="col-md-4 col-sm-4 col-xs-12"></div>
 

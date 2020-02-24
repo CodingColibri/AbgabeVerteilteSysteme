@@ -35,3 +35,9 @@
     float: right;
     margin-right: 20px;
 }
+
+a {
+    padding-top: 150px;
+    margin-left: 175px;
+    color: white;
+}
