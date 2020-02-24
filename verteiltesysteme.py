@@ -1,4 +1,4 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, jsonify
 from flask_sqlalchemy import SQLAlchemy
 from sqlalchemy import text
 
@@ -51,14 +51,16 @@ def db_query():
     results = db.engine.execute(text(sql)) #db abruf
     names = []
     for row in results:
-        names.append(list(row._row)) #ergebnis auswerten
-        print(type(names[0]))
+        names.append(dict(zip(row.keys(),row))) #ergebnis auswerten
+        print(type(row._row))
+        print(names[0])
     if len(names) < 1:
         return "<h1>No Entry found</h1>"
-    return '''<h1>{}</h1>
+    return jsonify(names)
+    """return '''<h1>{}</h1>
               <p>Company: {}</p>
               <p>E-Mail: {}</p>
-              <p>Tel.: {}</p>'''.format(names[0][1] + " " + names[0][2], names[0][3], names[0][4], names[0][5])
+              <p>Tel.: {}</p>'''.format(names[0][1] + " " + names[0][2], names[0][3], names[0][4], names[0][5])"""
 
 
 #Database Stuff
