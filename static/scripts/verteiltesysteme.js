@@ -21,17 +21,20 @@ document.getElementById("bs").addEventListener("click", function() {
     xhr.onreadystatechange = function() {
         if (this.readyState == 4 && this.status == 200) {
             //document.getElementById("demo").innerHTML = this.responseText;
-            alert("Client added")
+            alert("Client added");
+
+            function JSalert() {
+                swal("Congrats!", ", Your account is created!", "success");
+            };
+
             document.querySelector("#validationServer01").value = null;
             document.querySelector("#validationServer02").value = null;
             document.querySelector("#validationServer03").value = null;
             document.querySelector("#validationServer04").value = null;
             document.querySelector("#validationServer05").value = null;
-        }
-        else if(this.readyState == 4 && this.status == 422){
+        } else if (this.readyState == 4 && this.status == 422) {
             alert(this.status + " Tel. Entry invalid! Only use 0-9")
         }
     };
 
-    
 });
