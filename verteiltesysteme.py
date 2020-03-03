@@ -30,7 +30,7 @@ def enter_client():
     return render_template('verteiltesysteme.html') #standard return
 
 
-@app.route('/query') #DB anfragen via URL arguments
+@app.route('/query', methods=['GET']) #DB anfragen via URL arguments
 def db_query():
     first = request.args.get('first') #args aus url abfragen
     last = request.args.get('last')
@@ -57,10 +57,6 @@ def db_query():
     if len(names) < 1:
         return "<h1>No Entry found</h1>"
     return jsonify(names)
-    """return '''<h1>{}</h1>
-              <p>Company: {}</p>
-              <p>E-Mail: {}</p>
-              <p>Tel.: {}</p>'''.format(names[0][1] + " " + names[0][2], names[0][3], names[0][4], names[0][5])"""
 
 
 #Database Stuff
